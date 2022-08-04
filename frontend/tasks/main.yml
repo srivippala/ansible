@@ -3,11 +3,6 @@
     name: nginx
     state: latest
 
-- name: Download Frontend from git repo and extract it
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes
 
 - name: Remove previous content
   ansible.builtin.file:

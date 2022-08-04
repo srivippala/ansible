@@ -19,3 +19,19 @@
     name: mongod
     state: restarted
     enabled: yes
+
+- name: Download Database Code
+  import_role:
+    name: common
+    tasks_from: download
+
+- name: Load Schema - Catalogue
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/catalogue.js"
+    idempotent: yes
+
+- name: Load Schema - users
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/users.js"
+    idempotent: yes
+
