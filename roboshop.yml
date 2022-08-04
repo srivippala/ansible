@@ -1,0 +1,9 @@
+- name: Set up Frontend Component
+  hosts: Frontend
+  roles:
+    - frontend
+
+- name: Set up Frontend Component
+  hosts: MONGODB
+  roles:
+    - mongodb
