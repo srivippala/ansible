@@ -2,3 +2,31 @@
   ansible.builtin.copy:
     src: nodejs.repo
     dest: /etc/yum.repos.d/nodejs.repo
+
+- name: Install NodeJS
+  ansible.builtin.yum:
+    - name:
+       - nodejs
+       - gcc-c++
+      state: installed
+
+- name: Add application user
+  ansible.builtin.user:
+    name: roboshop
+    state: present
+
+- name: download app code
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: download
+
+- name: Clean old app code
+  ansible.builtin.file:
+    path: /home/roboshop/catalogue
+    state: absent
+
+- name: copy app code
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue/
+    remote_src: yes
