@@ -8,7 +8,7 @@ mongodb.roboshop.internal
 catalogue.roboshop.internal
 
 [REDIS]
-redis.roboshop.internal
+172.31.4.166
 
 [USER]
 user.roboshop.internal
