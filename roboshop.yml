@@ -4,9 +4,14 @@
 #  roles:
 #    - frontend
 
-
 - name: Setup Mongodb Component
   hosts: MONGODB
   become: yes
   roles:
     - mongodb
+
+- name: Setup catalogue Component
+  hosts: CATALOGUE
+  become: yes
+  roles:
+    - catalogue

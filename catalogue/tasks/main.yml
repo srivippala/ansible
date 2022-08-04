@@ -1,0 +1,2 @@
+- name: setus repo file  for NodeJs
+  ansible.builtin.shell
