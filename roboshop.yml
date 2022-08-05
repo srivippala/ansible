@@ -6,13 +6,13 @@
 #  roles:
 #    - frontend
 
-- name: Setup MongoDB Component
-  hosts: MONGODB
-  become: yes
-  tags:
-    - mongodb
-  roles:
-    - mongodb
+#- name: Setup MongoDB Component
+#  hosts: MONGODB
+#  become: yes
+#  tags:
+#   - mongodb
+#  roles:
+#    - mongodb
 
 - name: Setup catalogue Component
   hosts: CATALOGUE
