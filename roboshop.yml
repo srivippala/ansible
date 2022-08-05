@@ -6,7 +6,7 @@
 #  roles:
 #    - frontend
 
-- name: Setup Mongodb Component
+- name: Setup MongoDB Component
   hosts: MONGODB
   become: yes
   tags:
@@ -29,3 +29,11 @@
     - redis
   roles:
     - redis
+
+- name: Setup user Component
+  hosts: user
+  become: yes
+  tags:
+    - user
+  roles:
+    - user
