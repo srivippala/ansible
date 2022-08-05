@@ -1,23 +1,31 @@
 #- name: Set up Frontend Component
 #  hosts: Frontend
 #  become: yes
+   tags:
+     - frontend
 #  roles:
 #    - frontend
 
 - name: Setup Mongodb Component
   hosts: MONGODB
   become: yes
+  tags:
+    - mongodb
   roles:
     - mongodb
 
 - name: Setup catalogue Component
   hosts: CATALOGUE
   become: yes
+  tags:
+    - catalogue
   roles:
     - catalogue
 
 - name: Setup redis Component
   hosts: redis
   become: yes
+  tags:
+    - redis
   roles:
     - redis
