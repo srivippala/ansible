@@ -22,29 +22,29 @@
 
 - name: Clean old app code
   ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/"{{COMPONENT}}"
     state: absent
 
 - name: copy app code
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
+    src: /tmp/"{{COMPONENT}}"-main/
+    dest: /home/roboshop/"{{COMPONENT}}"/
     remote_src: yes
   become_user: roboshop
 
-- name: install  {{COMPONENT}} packages based on package.json
+- name: install  "{{COMPONENT}}" packages based on package.json
   community.general.npm:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/roboshop/"{{COMPONENT}}"
   become_user: roboshop
 
-- name: setup {{COMPONENT}} systemd file
+- name: setup "{{COMPONENT}}" systemd file
   ansible.builtin.template:
     src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: /etc/systemd/system/"{{COMPONENT}}".service
 
-- name: Start {{COMPONENT}} service
+- name: Start "{{COMPONENT}}" service
   ansible.builtin.systemd:
-    name: {{COMPONENT}}
+    name: "{{COMPONENT}}"
     state: restarted
     enabled: yes
     daemon_reload: yes
